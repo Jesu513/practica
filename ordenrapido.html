@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function quick_sort(vector) {
+            var mas_grande, menor, pivote;
+          
+            if (!vector) {
+              return [];
+            } else {
+              pivote = vector.slice(-1)[0];
+          
+              menor = function () {
+                var _pj_a = [],
+                    _pj_b = vector;
+          
+                for (var _pj_c = 0, _pj_d = _pj_b.length; _pj_c < _pj_d; _pj_c += 1) {
+                  var x = _pj_b[_pj_c];
+          
+                  if (x < pivote) {
+                    _pj_a.push(x);
+                  }
+                }
+          
+                return _pj_a;
+              }.call(this);
+          
+              mas_grande = function () {
+                var _pj_a = [],
+                    _pj_b = vector.slice(0, -1);
+          
+                for (var _pj_c = 0, _pj_d = _pj_b.length; _pj_c < _pj_d; _pj_c += 1) {
+                  var x = _pj_b[_pj_c];
+          
+                  if (x >= pivote) {
+                    _pj_a.push(x);
+                  }
+                }
+          
+                return _pj_a;
+              }.call(this);
+          
+              return quick_sort(menor) + [pivote] + quick_sort(mas_grande);
+            }
+          }
+   
+    </script>
+</head>
+<body>
+    <h3>Ordenamiento rapido</h3>
+    <button type="button" onclick="mergeSort(array)">Ordemaniento rapido</button>
+    <p ip="lblResultado"></p>
+</body>
+</html>
